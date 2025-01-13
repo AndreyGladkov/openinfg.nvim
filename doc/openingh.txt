@@ -30,10 +30,10 @@ CONTENTS                                                    *openingh*
 ==============================================================================
  3. COMMANDS                                   *openingh-commands*
 
- :OpenInGHRepo 
+ :OpenInFGRepo 
    - Opens the project's git repository page in GitHub.
 
- :OpenInGHFile [git-rev]
+ :OpenInFGFile [git-rev]
    - Opens the current file page in GitHub. Providing an optional [git-rev] will override the
      current branch/rev.
 
@@ -43,14 +43,14 @@ CONTENTS                                                    *openingh*
  You can call the commands directly or define mappings them:
 
   -- for repository page
-  vim.api.nvim_set_keymap("n", "<Leader>gr", ":OpenInGHRepo <CR>", { expr = true, noremap = true })
+  vim.api.nvim_set_keymap("n", "<Leader>gr", ":OpenInFGRepo <CR>", { expr = true, noremap = true })
 
   -- for current file page
-  vim.api.nvim_set_keymap("n", "<Leader>gf", ":OpenInGHFile <CR>", { expr = true, noremap = true })
+  vim.api.nvim_set_keymap("n", "<Leader>gf", ":OpenInFGFile <CR>", { expr = true, noremap = true })
 
  To copy the URL into a register set 
    `vim.g.openingh_copy_to_register = true`
- `OpenInGHFile a` should place the URL into register `a`
+ `OpenInFGFile a` should place the URL into register `a`
 
  In case your remote repository name is different from `origin`, please set a pushDefault so that openingh can get the remote name from it.
  `git config remote.pushDefault <your-remote-name>  # e.g. git config remote.pushDefault upstream`

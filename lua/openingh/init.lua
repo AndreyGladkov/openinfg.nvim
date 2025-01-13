@@ -64,7 +64,7 @@ function M.get_file_url(
     rev = branch
   end
 
-  local file_page_url = M.repo_url .. "/blob/" .. rev .. file_path
+  local file_page_url = M.repo_url .. "/src/" .. rev .. file_path
 
   if range_start and not range_end then
     file_page_url = file_page_url .. "#L" .. range_start

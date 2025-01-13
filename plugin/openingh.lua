@@ -14,7 +14,7 @@ local function judge_priority(bang)
   end
 end
 
-vim.api.nvim_create_user_command("OpenInGHFile", function(opts)
+vim.api.nvim_create_user_command("OpenInFGFile", function(opts)
   local url
 
   local branch = opts.fargs[1]
@@ -37,7 +37,7 @@ end, {
   nargs = "*",
 })
 
-vim.api.nvim_create_user_command("OpenInGHFileLines", function(opts)
+vim.api.nvim_create_user_command("OpenInFGFileLines", function(opts)
   local url
 
   local branch = opts.fargs[1]
@@ -60,7 +60,7 @@ end, {
   nargs = "*",
 })
 
-vim.api.nvim_create_user_command("OpenInGHRepo", function(opts)
+vim.api.nvim_create_user_command("OpenInFGRepo", function(opts)
   local url = openingh.get_repo_url(judge_priority(opts.bang))
 
   if opts.reg == "" then
