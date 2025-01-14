@@ -21,6 +21,7 @@ function M.setup()
   end
 
   M.repo_url = string.format("http://%s/%s/%s", gh.host, gh.user_or_org, gh.reponame)
+  M.host = gh.host
 end
 
 M.priority = { BRANCH = 1, COMMIT = 2 }
@@ -64,7 +65,13 @@ function M.get_file_url(
     rev = branch
   end
 
-  local file_page_url = M.repo_url .. "/src/" .. rev .. file_path
+  local blob = "/src/"
+
+  if M.host == "github.com" then
+    blob = "/blob/"
+  end
+
+  local file_page_url = M.repo_url .. blob .. rev .. file_path
 
   if range_start and not range_end then
     file_page_url = file_page_url .. "#L" .. range_start
